@@ -170,3 +170,24 @@ const getUsersWithFriend = (users, friendName) => {
 
 console.log(getUsersWithFriend(users, 'Briana Decker')); // [ 'Sharlene Bush', 'Sheree Anthony' ]
 console.log(getUsersWithFriend(users, 'Goldie Gentry')); // [ 'Elma Head', 'Sheree Anthony' ]
+console.log("9");
+const getNamesSortedByFriendsCount = users => {
+  const NamesSortedByFriendsCount = [...users].sort((a , b) => a.friends.length - b.friends.length);
+  const names = NamesSortedByFriendsCount.map(user => user.name);
+  return names
+ 
+
+};
+// const sortedByAscendingScore = [...students].sort((a, b) => a.score - b.score);
+// const names = sortedByAscendingScore.map(student => student.name);
+console.log(getNamesSortedByFriendsCount(users));
+console.log("10");
+const getSortedUniqueSkills = users => {
+  const SortedUniqueSkills = users
+  .flatMap(user => user.skills)
+  .filter((skill, index, array) => array.indexOf(skill) === index)
+  .sort((a, b) => a.localeCompare(b));
+  return SortedUniqueSkills
+};
+
+console.log(getSortedUniqueSkills(users));
